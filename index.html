@@ -1,0 +1,78 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <h2 class="title">To-Do List</h2><br>
+        <h3 class="date" id="date"></h3>
+    </div>
+    </div>
+
+    <div>
+        <form>
+            <input type="text" class="todo-input">
+            <button class="todo-button btn-info" type="submit">
+                <i class="fa fa-plus-square" aria-hidden="true"></i>
+            </button>
+            <div class="select form-group ">
+                <select name="todos" class="filter-todo custom-select">
+                    <option value="all">Toutes</option>
+                    <option value="completed">Complétés</option>
+                    <option value="uncompleted">A faire</option>
+                </select>
+            </div>
+        </form>
+        <div class="todo-container">
+            <ul class="todo-list"></ul>
+        </div>
+
+    </div>
+    <div>
+        <!--Waves Container-->
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+    </svg>
+        </div>
+        <!--Waves end-->
+    </div>
+
+    <!--todo script-->
+    <script src="./js/app.js"></script>
+
+    <!--days library for calendar-->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/locale/fr.js"></script>
+
+    <script>
+        //date in fr format
+        dayjs.locale('fr');
+        var now = dayjs().locale('fr').format('dddd DD MMMM YYYY');
+        //console.log(now);
+        dateCapitalized = now.charAt(0).toUpperCase() + now.slice(1); //first letter in capital
+        //console.log(dateCapitalized);
+        var datefr = document.createElement("h4"); // Create a <button> element
+        datefr.innerHTML = dateCapitalized; // Insert text
+        document.getElementById("date").appendChild(datefr);
+    </script>
+</body>
+
+</html>
